@@ -12,7 +12,7 @@ const postApiTransaction = async (req, res) => {
 
     try {
         const savedata = await transaction.save();
-        res.json({
+        res.status(201).json({
             success: true,
             data: savedata,
             message: "Trasaction saved"
@@ -27,7 +27,7 @@ const postApiTransaction = async (req, res) => {
 
 const getApiTransactions = async (req, res) => {
     const alltransaction = await Transaction.find();
-   return res.json({
+   return res.status(200).json({
         success: true,
         data: alltransaction,
         message: "successfull all transation fatched "
