@@ -1,5 +1,4 @@
-
-import Transaction from "../models/Transaction";
+import Transaction from "./../models/Transaction.js"
 
 const postApiTransaction = async (req, res) => {
     const {amount, type, category, description } = req.body;
@@ -26,4 +25,13 @@ const postApiTransaction = async (req, res) => {
     }
 }
 
-export {postApiTransaction}
+const getApiTransactions = async (req, res) => {
+    const alltransaction = await Transaction.find();
+   return res.json({
+        success: true,
+        data: alltransaction,
+        message: "successfull all transation fatched "
+    })
+}
+
+export {postApiTransaction, getApiTransactions}
