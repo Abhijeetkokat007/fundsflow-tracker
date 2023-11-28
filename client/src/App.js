@@ -22,6 +22,23 @@ loadTransaction()
     <div>
       
       </div>
+      {
+        transaction?.map((transaction, i) => {
+          const{amount, category, type, description, createdAt, updatedAt} = transaction;
+  
+          return(
+           <div className='transaction-card' key={i}>
+            <p className='category-transaction'> {category} </p>
+             <span className={` amount-transaction ${ type === "credit" ? "creadit-transaction" : "debit-transaction"}`} >{ type === "credit" ? "+" : "-"} {amount}  </span>
+             <span>{ type === "credit" ? "Credited" : "Debited"}</span>
+             <p>  </p>
+             <hr/>
+             
+            <p> {description}</p>
+           </div>
+          )
+        })
+      }
      
     </>
   )
