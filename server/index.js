@@ -7,6 +7,7 @@ import { postApiTransaction, getApiTransactions } from "./controllers/transactio
 import { getApiHelth } from "./controllers/helth.js";
 import SignUp from "./models/SignUp.js";
 import { postApiSignUp } from "./controllers/signup.js";
+import { postApiLogin } from "./controllers/login.js";
 
 const app = Express();
 app.use(Express.json());
@@ -31,6 +32,8 @@ app.get("/api/transactions", getApiTransactions)
 app.get("/api/health", getApiHelth );
 
 app.post("/api/signup", postApiSignUp)
+
+app.post("/api/login", postApiLogin)
 
 
 
