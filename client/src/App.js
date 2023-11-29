@@ -9,6 +9,16 @@ const [transaction, setTransaction] = useState([]);
 const loadTransaction = async () => {
   const response = await axios.get('/api/transactions');
 
+  const ALL_EMOGY = ({
+    "food" : "😋", 
+    "entertainment": "🎥", 
+    "rent": "🏠", 
+    "shoping" : "🛍️", 
+    "travel" : " 🧳", 
+    "education" : "📚",
+     "other": "😎"
+})
+
   const alldata = response?.data?.data ;
   console.log(alldata)
   setTransaction(alldata);
@@ -28,7 +38,7 @@ loadTransaction()
   
           return(
            <div className='transaction-card' key={i}>
-            <p className='category-transaction'> {category} </p>
+            <p className='category-transaction'>  {category} </p>
              <span className={` amount-transaction ${ type === "credit" ? "creadit-transaction" : "debit-transaction"}`} >{ type === "credit" ? "+" : "-"} {amount}  </span>
              <span>{ type === "credit" ? "Credited" : "Debited"}</span>
              <p>  </p>
