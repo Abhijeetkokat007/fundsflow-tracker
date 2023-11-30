@@ -37,6 +37,6 @@ const signupschema = new Schema({
     }
 )
 
-const SignUp = model('signup', signupschema)
+const SignUp = model('SignUp', signupschema)
 
 export default SignUp

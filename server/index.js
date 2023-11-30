@@ -3,11 +3,12 @@ import mongoose from "mongoose";
 import dotenv  from 'dotenv';
 dotenv.config();
 import Transaction from "./models/Transaction.js";
-import { postApiTransaction, getApiTransactions } from "./controllers/transaction.js";
+import { postApiTransaction, getApiTransactions, getApiUserTransaction } from "./controllers/transaction.js";
 import { getApiHelth } from "./controllers/helth.js";
 // import SignUp from "./models/SignUp.js";
 import { postApiSignUp } from "./controllers/signup.js";
 import { postApiLogin } from "./controllers/login.js";
+
 
 const app = Express();
 app.use(Express.json());
@@ -35,17 +36,7 @@ app.post("/api/signup", postApiSignUp)
 
 app.post("/api/login", postApiLogin)
 
-app.get("/api/products/user/:id",  async (req, res) => {
-    const {_id} = req.params;
-    const order1 = await Transaction.find({user: _id}).populate("signup transaction")
-  
-    res.json({
-      success:true,
-      data:order1,
-      message: "order fatched successfully"
-    });
-  })
-
+app.get("/api/products/user/:id", getApiUserTransaction )
 
 
 const PORT = process.env.PORT || 5000;

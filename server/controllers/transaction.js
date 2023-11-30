@@ -1,10 +1,11 @@
 import Transaction from "./../models/Transaction.js"
 
 const postApiTransaction = async (req, res) => {
-    const {amount, type, category, description } = req.body;
+    const {amount, user,  type, category, description } = req.body;
 
     const transaction = new Transaction({
         amount,
+        user,
         type,
         category,
         description
@@ -34,4 +35,23 @@ const getApiTransactions = async (req, res) => {
     })
 }
 
-export {postApiTransaction, getApiTransactions}
+const getApiUserTransaction = async (req, res) => {
+    const { id} = req.params;
+   try{
+    const order1 = await Transaction.find({user:{ _id: id }}).populate("user")
+  
+    res.json({
+      success:true,
+      data:order1,
+      message: "user Transaction fatch  successfully"
+    });
+   }
+   catch(e){
+    res.json({
+        success:false,
+        message: e.message
+      });
+   }
+  }
+
+export {postApiTransaction, getApiTransactions , getApiUserTransaction}
