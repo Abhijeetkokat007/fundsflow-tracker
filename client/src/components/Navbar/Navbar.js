@@ -10,7 +10,7 @@ function Navbar() {
             <div className='dis-flex '>
                 <Link to="/" className='ml-2 font-20 nav-link'> Home </Link>
                 {/* <Link  to=" "> </Link> */}
-                <Link to="/transaction" className='ml-2 font-20 nav-link'> All Transaction </Link>
+                <Link to="/transaction" className='ml-2 font-20 nav-link'> My Transaction </Link>
                 <Link to="/login" className='ml-2 font-20 nav-link'> Login </Link>
                 <Link to="/signup" className='ml-2 font-20 nav-link'> SignUp </Link>
                 {/* <Link to="/orders" className='nav-btn'>My Orders</Link> */}

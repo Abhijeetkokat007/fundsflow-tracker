@@ -16,10 +16,10 @@ const signupschema = new Schema({
         unique: true,
 
     },
-    address: {
-        type: String,
-        require: true
-    },
+    // address: {
+    //     type: String,
+        
+    // },
     password: {
         type: String,
         require: true

@@ -23,13 +23,14 @@ box-shadow: 0 2px 20px 0 rgb(157, 156, 156);
 .nav-link{
     text-decoration: none;
     color: #314259;
-
+    border-bottom: 2px solid white;
 }
 .red-title{
     color: #ec1334;
 }
 .light-title{
     color: #314259;
+    
 }
 .nav-link:hover{
     color: #ec1334;
