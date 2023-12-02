@@ -54,4 +54,50 @@ const getApiUserTransaction = async (req, res) => {
    }
   }
 
-export {postApiTransaction, getApiTransactions , getApiUserTransaction}
+  const deleteApiTransactionId = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      await Transaction.deleteOne({ _id: id });
+      res.status(200).json({
+        success: true,
+        message: "Transaction deleted successfully",
+      });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: err.message,
+      });
+    }
+  };
+
+  const putApiTransactionById = async (req, res) => {
+    const { id } = req.params;
+    const { amount, transactionType, category, description } = req.body;
+    await Transaction.updateOne(
+      { _id: id },
+      {
+        $set: {
+          amount,
+          transactionType,
+          category,
+          description,
+        },
+      }
+    );
+    try {
+      const updateTransaction = await Transaction.findOne({ _id: id });
+      return res.status(200).json({
+        success: true,
+        data: updateTransaction,
+        message: "Transaction updated successfully",
+      });
+    } catch (err) {
+      res.status(500).json({
+        success: false,
+        message: err.message,
+      });
+    }
+  };
+
+export {postApiTransaction, getApiTransactions , getApiUserTransaction, deleteApiTransactionId, putApiTransactionById}

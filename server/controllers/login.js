@@ -1,5 +1,6 @@
 import SignUp from "./../models/SignUp.js";
 
+
 const postApiLogin = async (req, res) => {
     const { email, password } = req.body;
 

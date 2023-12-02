@@ -17,12 +17,12 @@ const transactionSchema = new Schema({
     },
     category : {
         type : String,
-        enum: ['food', 'entertainment', 'rent', 'shoping', 'travel', 'education', 'other'],
+        enum: ['Food', 'Entertainment', 'Rent', 'Shoping', 'Travel', 'Education', 'Other'],
         required : true,
     },
     type: {
         type : String,
-        enum: ['credit', 'debit'],
+        enum: ['Credit', 'Debit'],
         require: true
     },
     description : {

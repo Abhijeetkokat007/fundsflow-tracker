@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import dotenv  from 'dotenv';
 dotenv.config();
 import Transaction from "./models/Transaction.js";
-import { postApiTransaction, getApiTransactions, getApiUserTransaction } from "./controllers/transaction.js";
+import { postApiTransaction, getApiTransactions, getApiUserTransaction, deleteApiTransactionId, putApiTransactionById } from "./controllers/transaction.js";
 import { getApiHelth } from "./controllers/helth.js";
 // import SignUp from "./models/SignUp.js";
 import { postApiSignUp } from "./controllers/signup.js";
@@ -37,6 +37,8 @@ app.post("/api/signup", postApiSignUp)
 app.post("/api/login", postApiLogin)
 
 app.get("/api/transaction/user/:id", getApiUserTransaction )
+
+app.delete("/api/transactions/:id", deleteApiTransactionId);
 
 
 const PORT = process.env.PORT || 5000;

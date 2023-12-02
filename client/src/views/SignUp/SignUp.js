@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import signupimg from './../../Images/Signup.png'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import showToast from 'crunchy-toast';
 
 function SignUp() {
   const [name, setName] = useState("");
@@ -16,17 +17,21 @@ function SignUp() {
   const loadsignup = async () => {
 
     if(!name){
-      alert('Name is required')
+      showToast('Name is required', 'alert', 6000);
+      // alert('Name is required')
     }
     if(!password){
-        alert('Password is required')
+      showToast('Password is required', 'alert', 6000);
+        // alert('Password is required')
       }
       if(!email){
-        alert('Email is required')
+        showToast('Email is required', 'alert', 6000);
+        // alert('Email is required')
       }
      
       if(!mobile){
-        alert('Mobile Number is required')
+        showToast('Mobile Number is required', 'alert', 6000);
+        // alert('Mobile Number is required')
       }
       
 
@@ -39,18 +44,18 @@ function SignUp() {
     }
 
     const response = await axios.post("/api/signup", data)
-
-    alert(response?.data?.message)
+    showToast(response?.data?.message, 'success', 3000);
+    
     if(response?.data?.success){
         window.location.href = "/login";
     }
-    // else{
-    //     alert(response?.data?.message)
-    //     setName('')
-    //     setEmail('')
-    //     setNumber('')
-    //     setPassword('')
-    // }
+    else{
+        alert(response?.data?.message)
+        setName('')
+        setEmail('')
+        setMobile('')
+        setPassword('')
+    }
   }
 
   useEffect(() => {
@@ -58,6 +63,7 @@ function SignUp() {
     console.log(storageUser);
 
     if (storageUser?.email) {
+      showToast('You are already logged in!', 'alert', 6000);
       alert("You are already logged in!");
       window.location.href = "/";
     }

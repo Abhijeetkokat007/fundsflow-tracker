@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Login.css'
 import Navbar from '../../components/Navbar/Navbar'
+import loginimg from "./../../Images/Computer-login.png"
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -44,7 +45,7 @@ console.log(e.message)
       <Navbar/>
       <div className='signup-container-main'>
         <div>
-          {/* <img className='signup-img' src={signupimg} /> */}
+          <img className='signup-img' src={loginimg} />
            </div>
 
         <div className='signup-container'>

@@ -1,0 +1,46 @@
+.alltransaction-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.trans-container-main{
+    box-shadow: 0 2px 20px 0 rgb(137, 135, 135);
+    padding: 30px;
+    margin: 50px;
+}
+.transaction-cards{
+    border: 1px solid ;
+    margin: 30px;
+    padding: 20px;
+    width: 500px;
+}
+.col-bla{
+    color: #314259;
+}
+.all-card-container{
+    height: 80vh;
+    margin-top: 40px;
+    
+    /* background-color: bisque; */
+    overflow-y: scroll;
+  }
+  .all-card-container::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .alltransaction-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .transaction-cards{
+        border: 1px solid ;
+        /* margin: 30px; */
+        padding: 20px;
+        width: 350px;
+    }
+  }
