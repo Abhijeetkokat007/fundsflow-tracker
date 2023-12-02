@@ -1,24 +1,42 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import {Link} from  'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
+    const [userdata, setUserdata] = useState({});
+
+  useEffect(() => {
+    const userFromlocalStorage = JSON.parse(localStorage.getItem('customer') || '{}');
+    setUserdata(userFromlocalStorage);
+  }, [])
     return (
         <div className='dis-flex nav-container p-2'>
             <div className='app-title'><span className='red-title'>FUNDSFLOW</span> <span className='light-title'>Tracker</span> </div>
 
             <div className='dis-flex '>
                 <Link to="/" className='ml-2 font-20 nav-link'> Home </Link>
-                {/* <Link  to=" "> </Link> */}
                 <Link to="/transaction" className='ml-2 font-20 nav-link'> My Transaction </Link>
                 <Link to="/login" className='ml-2 font-20 nav-link'> Login </Link>
                 <Link to="/signup" className='ml-2 font-20 nav-link'> SignUp </Link>
-                {/* <Link to="/orders" className='nav-btn'>My Orders</Link> */}
+               
+                
 
 
             </div>
 
-            <div>Login Activity</div>
+            <div className='mt-10 user-text' >
+            <img className='profile-img' height='40px' src='https://www.nicepng.com/png/full/202-2024687_profile-icon-png.png'/>{userdata.name}
+
+{
+  userdata?.name? (<button className='btn-logout'
+  onClick={()=>{
+    localStorage.removeItem("customer");
+    window.location.href = "/login"
+  }}
+  >logOut</button>) : null 
+}
+            </div>
         </div>
     )
 }

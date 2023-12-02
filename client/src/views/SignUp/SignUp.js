@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 
 function SignUp() {
   const [name, setName] = useState("");
-  const [email, setEmail] =useState("");
-  const [number, setNumber] = useState("");
-  const [Password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState();
+  const [password, setPassword] = useState("");
   const [gender, setGender] = useState("Male")
 
   const loadsignup = async () => {
@@ -18,14 +18,14 @@ function SignUp() {
     if(!name){
       alert('Name is required')
     }
-    if(!Password){
+    if(!password){
         alert('Password is required')
       }
       if(!email){
         alert('Email is required')
       }
      
-      if(!number){
+      if(!mobile){
         alert('Mobile Number is required')
       }
       
@@ -33,29 +33,28 @@ function SignUp() {
     const data = {
       name,
       email,
-      number,
+      mobile,
       gender,
-      Password
+      password
     }
 
-    const response = await axios.post("/api/signup")
+    const response = await axios.post("/api/signup", data)
 
-    alert(response.data.message)
+    alert(response?.data?.message)
     if(response?.data?.success){
         window.location.href = "/login";
     }
-    else{
-        alert(response?.data?.message)
-        setName('')
-        setEmail('')
-        
-        setNumber('')
-        setPassword('')
-    }
+    // else{
+    //     alert(response?.data?.message)
+    //     setName('')
+    //     setEmail('')
+    //     setNumber('')
+    //     setPassword('')
+    // }
   }
 
   useEffect(() => {
-    const storageUser = JSON.parse(localStorage.getItem("user") || "{}");
+    const storageUser = JSON.parse(localStorage.getItem("customer") || "{}");
     console.log(storageUser);
 
     if (storageUser?.email) {
@@ -84,7 +83,7 @@ function SignUp() {
           }}
           />
 
-        <input type='text'
+        <input type='email'
          className='input-box' 
          placeholder='Enter your Email' 
          value={email}
@@ -96,16 +95,16 @@ function SignUp() {
         <input type='text'
          className='input-box'
           placeholder='Enter your Mo. Number'
-          value={number}
+          value={mobile}
           onChange={(e)=>{
-           setNumber(e.target.value)
+           setMobile(e.target.value)
           }}
           />
 
         <input type='text'
          className='input-box' 
          placeholder='Enter your Password' 
-         value={Password}
+         value={password}
          onChange={(e)=>{
           setPassword(e.target.value)
          }}

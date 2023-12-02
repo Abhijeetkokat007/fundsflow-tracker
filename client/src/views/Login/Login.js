@@ -21,7 +21,7 @@ function Login() {
       alert(response?.data?.message)
   
       if (response?.data?.success) {
-        localStorage.setItem('user', JSON.stringify(response?.data?.data));
+        localStorage.setItem('customer', JSON.stringify(response?.data?.data));
         window.location.href = "/";
       }
     }
@@ -32,7 +32,7 @@ console.log(e.message)
   }
 
   useEffect(()=>{
-    const storedUser = JSON.parse(localStorage.getItem("user") || "{}" );
+    const storedUser = JSON.parse(localStorage.getItem("customer") || "{}" );
 
     if(storedUser?.email){
       alert("you are already logged in!");

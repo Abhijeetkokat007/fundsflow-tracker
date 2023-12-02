@@ -22,7 +22,7 @@ const postApiSignUp = async (req, res) => {
         message: "user created successfull"
     })
    }
-   catch{
+   catch(e){
     return res.json({
         success: false,
         message: e.message

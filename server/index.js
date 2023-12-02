@@ -36,7 +36,7 @@ app.post("/api/signup", postApiSignUp)
 
 app.post("/api/login", postApiLogin)
 
-app.get("/api/products/user/:id", getApiUserTransaction )
+app.get("/api/transaction/user/:id", getApiUserTransaction )
 
 
 const PORT = process.env.PORT || 5000;

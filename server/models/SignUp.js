@@ -14,7 +14,6 @@ const signupschema = new Schema({
         type: String,
         require: true,
         unique: true,
-
     },
     // address: {
     //     type: String,
@@ -27,7 +26,7 @@ const signupschema = new Schema({
     },
     gender: {
         type: String,
-        enum:['male', 'female'],
+        enum:['Male', 'Female'],
         require: true
 
     }
