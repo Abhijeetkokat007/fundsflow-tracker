@@ -32,6 +32,20 @@
 .poster-img{
     border-radius:  200px 0;
 }
+.bg-orange{
+    
+    background-color:#ffe6e6 ;
+}
+.bg-white{
+    background-color: white;
+}
+.devlop-name{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
 
 @media screen and  (max-width:768px) {
     .image-main{

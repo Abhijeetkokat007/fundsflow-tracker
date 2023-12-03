@@ -19,16 +19,16 @@ function Alltransactions() {
 
   const loadposttransaction = async () => {
 
-    if(!amount){
+    if (!amount) {
       showToast('Amount is required', 'alert', 6000);
-      
+
     }
-    if(!description){
+    if (!description) {
       showToast('Description is required', 'alert', 6000);
-       
-      }
-      
-      
+
+    }
+
+
 
     const data = {
       user,
@@ -39,21 +39,21 @@ function Alltransactions() {
     }
 
     const response = await axios.post("/api/transaction", data)
-    
-    
-    if(response?.data?.success){
-        window.location.href = "/transaction";
-        showToast(response?.data?.message, 'success', 3000)
+
+
+    if (response?.data?.success) {
+      window.location.href = "/transaction";
+      showToast(response?.data?.message, 'success', 3000)
 
     }
-    else{
-        // alert(response?.data?.message)
-        setAmount('')
-        setDescriptionr('')
-        
-  }
+    else {
+      // alert(response?.data?.message)
+      setAmount('')
+      setDescriptionr('')
 
- 
+    }
+
+
 
   }
   const localStoragedata = JSON.parse(localStorage.getItem("customer") || "{}");
@@ -70,15 +70,15 @@ function Alltransactions() {
 
 
 
- 
+
   const deleteTransition = async (_id) => {
-   
-     
+
+
     const response = await axios.delete(`/api/transactions/${_id}`);
-    console.log("id=",_id)
+    console.log("id=", _id)
     if (response?.data?.message) {
       loadData();
-      
+
     }
   };
 
@@ -86,7 +86,7 @@ function Alltransactions() {
     loadData()
   }, [])
 
-  
+
   return (
 
     <div>
@@ -96,7 +96,7 @@ function Alltransactions() {
         <div className='trans-container-main'>
           <h1>Add Transaction ➕</h1>
           <p className='col-bla'>User ID: {user}</p>
-          
+
 
           <input type='text'
             className='input-box'
@@ -131,7 +131,7 @@ function Alltransactions() {
             <option>Food</option>
             <option>Other</option>
           </select>
-{type}
+          {type}
           <input type='radio'
             name='radio'
             checked={type === 'Credit'}
@@ -151,7 +151,7 @@ function Alltransactions() {
           />Debit
 
 
-         <p> <button onClick={loadposttransaction} className='btn-register'> Add Transaction </button></p>
+          <p> <button onClick={loadposttransaction} className='btn-register'> Add Transaction </button></p>
 
 
 
@@ -164,18 +164,24 @@ function Alltransactions() {
 
               return (
                 <div className='transaction-cards' key={i}>
-                  {/* <p className='category-transaction'>  {transaction.category} </p> */}
+                  <p className='category-transaction'>  {category} </p>
                   <span className={` amount-transaction ${type === "Credit" ? "creadit-transaction" : "debit-transaction"}`} >{type === "Credit" ? "+" : "-"} {amount}  </span>
                   <span>{type === "Credit" ? "Credited" : "Debited"}</span>
-                  <span onClick={() => {
-                  deleteTransition(_id);
-                }}> 🗑️ </span>
+                  
 
-                <span>{_id}</span>
+
 
                   <hr />
 
                   <p> {description}</p>
+
+                  <span className='delete-text' onClick={() => {
+                    deleteTransition(_id);
+                  }}> Delete </span>
+
+                  <span className='edit-text' onClick={() => {
+                    
+                  }}> Edit </span>
                 </div>
               )
             })

@@ -8,10 +8,12 @@ import { getApiHelth } from "./controllers/helth.js";
 // import SignUp from "./models/SignUp.js";
 import { postApiSignUp } from "./controllers/signup.js";
 import { postApiLogin } from "./controllers/login.js";
+import path from "path";
 
 
 const app = Express();
 app.use(Express.json());
+const __dirname = path.resolve();
 
 const connectDB = async () => {
     try {
@@ -40,10 +42,16 @@ app.get("/api/transaction/user/:id", getApiUserTransaction )
 
 app.delete("/api/transactions/:id", deleteApiTransactionId);
 
+if(process.env.NODE_ENV === "production"){
+    app.use(Express.static(path.join(__dirname, '..', 'client', 'build'))); 
+   
+    app.get('*', (req, res) => {
+     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    });
+   }
+   
 
 const PORT = process.env.PORT || 5000;
-
-
 app.listen(PORT, () => {
 
     console.log(`server is runing ${PORT}`)

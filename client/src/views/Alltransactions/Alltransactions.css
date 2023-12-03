@@ -2,6 +2,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
 }
 
 .trans-container-main{
@@ -10,10 +11,12 @@
     margin: 50px;
 }
 .transaction-cards{
-    border: 1px solid ;
+    /* border: 1px solid #314259; */
+    box-shadow: 0 1px 10px 0  rgb(137, 135, 135); 
     margin: 30px;
     padding: 20px;
     width: 500px;
+    position: relative;
 }
 .col-bla{
     color: #314259;
@@ -28,7 +31,21 @@
   .all-card-container::-webkit-scrollbar {
     display: none;
   }
+  .delete-text{
+    position: absolute;
+    right: 50px;
+    bottom: 5px;
+    color: red;
+    cursor: pointer;
+  }
 
+  .edit-text{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: green;
+    cursor: pointer;
+  }
 
   @media screen and (max-width: 768px) {
     .alltransaction-container{
@@ -38,9 +55,10 @@
         align-items: center;
     }
     .transaction-cards{
-        border: 1px solid ;
+       
         /* margin: 30px; */
         padding: 20px;
         width: 350px;
     }
+
   }

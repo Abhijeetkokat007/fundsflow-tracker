@@ -12,7 +12,7 @@ function Navbar() {
   }, [])
     return (
         <div className='dis-flex nav-container p-2'>
-            <div className='app-title'><span className='red-title'>FUNDSFLOW</span> <span className='light-title'>Tracker</span> </div>
+            <div onClick={()=>{window.location.href = "/";}} className='app-title'><span className='red-title'>FUNDSFLOW</span> <span className='light-title'>Tracker</span> </div>
 
             <div className='dis-flex '>
                 <Link to="/" className='ml-2 font-20 nav-link'> Home </Link>
