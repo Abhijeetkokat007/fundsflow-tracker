@@ -18,7 +18,7 @@ function Alltransactions() {
   const [transaction, setTransaction] = useState([]);
 
   const loadposttransaction = async () => {
-
+   
     if (!amount) {
       showToast('Amount is required', 'alert', 6000);
 
@@ -84,6 +84,15 @@ function Alltransactions() {
 
   useEffect(() => {
     loadData()
+
+    const storageUser = JSON.parse(localStorage.getItem("customer") || "{}");
+    console.log(storageUser);
+
+    if (!storageUser?.email) {
+      showToast('please Account login !', 'alert', 6000);
+      alert("Please Account login !");
+      window.location.href = "/login";
+    }
   }, [])
 
 
