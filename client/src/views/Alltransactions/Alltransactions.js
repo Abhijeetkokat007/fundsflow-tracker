@@ -13,9 +13,12 @@ function Alltransactions() {
   const [type, setType] = useState("Debit");
   const [amount, setAmount] = useState();
 
-
-
   const [transaction, setTransaction] = useState([]);
+
+ 
+
+ 
+  
 
   const loadposttransaction = async () => {
    
@@ -170,19 +173,35 @@ function Alltransactions() {
           {
             transaction?.map((transaction, i) => {
               const { _id, amount, category, type, description, createdAt, updatedAt } = transaction;
-
+              const date = new Date(createdAt).toLocaleDateString();
+              const time = new Date(createdAt).toLocaleTimeString();
+              const ALL_EMOGY = ({
+                Food : "😋", 
+                Entertainment: "🎥", 
+                Rent: "🏠", 
+                Shoping : "🛍️", 
+                Travel : " 🧳", 
+                Education : "📚",
+                Other: "😎"
+            })
               return (
                 <div className='transaction-cards' key={i}>
-                  <p className='category-transaction'>  {category} </p>
+                
+
+                  <p className='category-transaction'> {ALL_EMOGY[category]} {category}  </p>
                   <span className={` amount-transaction ${type === "Credit" ? "creadit-transaction" : "debit-transaction"}`} >{type === "Credit" ? "+" : "-"} {amount}  </span>
                   <span>{type === "Credit" ? "Credited" : "Debited"}</span>
+                  
+                
+                    <span>  on {date } at {time} </span>
+                
                   
 
 
 
-                  <hr />
+                  <hr/>
 
-                  <p> {description}</p>
+                  <p>{description}</p>
 
                   <span className='delete-text' onClick={() => {
                     deleteTransition(_id);

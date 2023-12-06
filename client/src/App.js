@@ -18,13 +18,13 @@ const loadTransaction = async () => {
   }
 
   const ALL_EMOGY = ({
-    "food" : "😋", 
-    "entertainment": "🎥", 
-    "rent": "🏠", 
-    "shoping" : "🛍️", 
-    "travel" : " 🧳", 
-    "education" : "📚",
-     "other": "😎"
+    food : "😋", 
+    entertainment: "🎥", 
+    rent: "🏠", 
+    shoping : "🛍️", 
+    travel : " 🧳", 
+    education : "📚",
+     other: "😎"
 })
 
  
