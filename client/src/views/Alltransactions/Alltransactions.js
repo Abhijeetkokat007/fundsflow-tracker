@@ -140,7 +140,7 @@ function Alltransactions() {
             <option>Food</option>
             <option>Other</option>
           </select>
-          {type}
+          {/* {type} */}
           <input type='radio'
             name='radio'
             checked={type === 'Credit'}

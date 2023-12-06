@@ -71,7 +71,7 @@ const getApiUserTransaction = async (req, res) => {
     }
   };
 
-  const putApiTransactionById = async (req, res) => {
+  const putApiTransactionId = async (req, res) => {
     const { id } = req.params;
     const { amount, transactionType, category, description } = req.body;
     await Transaction.updateOne(
@@ -100,4 +100,4 @@ const getApiUserTransaction = async (req, res) => {
     }
   };
 
-export {postApiTransaction, getApiTransactions , getApiUserTransaction, deleteApiTransactionId, putApiTransactionById}
+export {postApiTransaction, getApiTransactions , getApiUserTransaction, deleteApiTransactionId, putApiTransactionId}
