@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.2",
     "boostrap": "^2.0.0",
+    "bootstrap": "^5.3.2",
     "build": "^0.1.4",
     "crunchy-toast": "^0.1.6",
     "react": "^18.2.0",

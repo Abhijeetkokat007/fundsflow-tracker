@@ -29,20 +29,20 @@ function Home() {
 
       </div>
 
-      <div className='home-poster'>
+      <div className='home-poster bg-orange margin-top'>
         <div >
-          <img className='poster-img' src='https://nomoredebts.org/wp-content/uploads/2020/10/tracking-personal-budget_2colm.jpg' alt='img' />
-        </div>
-        <div className='home-poster-text'>
-          <h1>Personal Budgeting</h1>
-          <h3>Expense Calculator and Tracker</h3>
+           <img className='poster-img' src='https://nomoredebts.org/wp-content/uploads/2020/10/tracking-personal-budget_2colm.jpg' alt='img' />
+         </div>
+         <div className='home-poster-text'>
+           <h1>Personal Budgeting</h1>
+           <h3>Expense Calculator and Tracker</h3>
           <p>Whether this is your first time tracking your expenses or you’re getting back to it because your situation has changed, we’ve got some helpful tips and tools to get you started. Our expense calculator and budget tracker are designed to make things simple for you.
 
-            If you need more immediate financial help or simply prefer to speak with someone face-to-face, our friendly, accredited financial counsellors are available to answer your questions, address your concerns, and help you work out your expenses and budget</p>
-        </div>
-      </div>
+             If you need more immediate financial help or simply prefer to speak with someone face-to-face, our friendly, accredited financial counsellors are available to answer your questions, address your concerns, and help you work out your expenses and budget</p>
+         </div>
+       </div>
 
-      <div className='home-poster bg-orange'>
+      <div className='home-poster '>
 
         <div className='home-poster-text'>
           <h1>Use a Budget Planner</h1>
@@ -56,7 +56,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='home-poster bg-white'>
+      <div className='home-poster bg-orange'>
         <div >
           <img className='poster-img' src='https://nomoredebts.org/wp-content/uploads/2020/10/tracking-spending-by-categorizing_2colm.jpg' alt='img' />
         </div>
@@ -71,7 +71,7 @@ function Home() {
         </div>
       </div>
 
-      <div className='home-poster bg-orange'>
+      <div className='home-poster bg-white'>
 
         <div className='home-poster-text'>
           <h1>Use a Budget Planner</h1>
@@ -86,7 +86,7 @@ function Home() {
       </div>
 
 <div className='devlop-name'>
-  Made By @Abhijeetkokat007 <img height="30px" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWTJYQn37nEl5r7Z1MhX8Jaw6KUvJtkYc0Bw&usqp=CAU'/>
+  Made By @Abhijeetkokat007 <img height="30px" className='img-github-logo' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWTJYQn37nEl5r7Z1MhX8Jaw6KUvJtkYc0Bw&usqp=CAU'/>
 </div>
     </div>
   )

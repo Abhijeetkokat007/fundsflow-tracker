@@ -1,5 +1,9 @@
 .nav-container {
   /* box-shadow: 0 2px 20px 0 rgb(157, 156, 156); */
+  position:sticky;
+  /* text-overflow: ellipsis; */
+  top: 0px;
+  background-color: white;
   
 }
 .dis-flex {
