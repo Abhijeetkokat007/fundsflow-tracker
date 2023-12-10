@@ -1,17 +1,39 @@
 .image-main{
     width: 100%;
-    height: 500px;
-    background-image:linear-gradient(45deg, #ffa5b22b, #ec13347a, #ffa5b22b), url(https://nomoredebts.org/wp-content/uploads/2020/08/tracking-your-spending_hero.jpg) ;
+    height: 600px;
+    /* background-image:linear-gradient(45deg, #ffa5b22b, #ec13347a, #ffa5b22b), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUC0CAUe8Yxc77e-LpsT2t2I6UjOzNSk1hffV1ffFdl0i6pKKErDrfTOqIDNF2r2Haw7E&usqp=CAU) ;
     text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    flex-direction: column;
+    flex-wrap: wrap;
+    /* color: white; */
+    /* flex-direction: column; */
     font-size: 20px;
 }
 .text-poster{
     margin-top: -10px;
+}
+.img-fundimg{
+    height: 500px;
+    
+}
+.img-heading{
+    /* border: 1px solid black;  */
+}
+.get-start{
+    padding: 20px 5px;
+    border-radius: 5px;
+    height: 40px;
+    width: 60px;
+}
+.m--10{
+    margin-top: -25px;
+}
+.m-20px{
+    margin-top: 20px;
 }
 
 .home-poster{
@@ -51,14 +73,20 @@
     .image-main{
         width: 100%;
         height: 300px;
-        background-image:linear-gradient(45deg, #ffa5b22b, #ec13347a, #ffa5b22b), url(https://nomoredebts.org/wp-content/uploads/2020/08/tracking-your-spending_hero.jpg) ;
+      
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        flex-direction: column;
+      
+       
         font-size: 15px;
+    }
+    .img-fundimg{
+        height: 350px;
+    }
+    .m--10{
+        margin-top: -20px;
     }
 
     .home-poster{

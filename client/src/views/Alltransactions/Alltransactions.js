@@ -12,23 +12,16 @@ function Alltransactions() {
   const [category, setCategory] = useState("Other");
   const [type, setType] = useState("Debit");
   const [amount, setAmount] = useState();
-
   const [transaction, setTransaction] = useState([]);
 
- 
-
- 
-  
 
   const loadposttransaction = async () => {
-   
+
     if (!amount) {
       showToast('Amount is required', 'alert', 6000);
-
     }
     if (!description) {
       showToast('Description is required', 'alert', 6000);
-
     }
 
 
@@ -42,15 +35,13 @@ function Alltransactions() {
     }
 
     const response = await axios.post("/api/transaction", data)
-
-
     if (response?.data?.success) {
       window.location.href = "/transaction";
       showToast(response?.data?.message, 'success', 3000)
 
     }
     else {
-      // alert(response?.data?.message)
+      
       setAmount('')
       setDescriptionr('')
 
@@ -60,12 +51,12 @@ function Alltransactions() {
 
   }
   const localStoragedata = JSON.parse(localStorage.getItem("customer") || "{}");
-  // console.log(localStoragedata);
+  
 
   const loadData = async () => {
     const response = await axios.get(`/api/transaction/user/${localStoragedata?._id}`)
     setTransaction(response?.data?.data)
-    // console.log(response?.data?.data)
+   
     console.log(localStoragedata?._id)
     console.log(response.data.data)
     setUser(localStoragedata?._id)
@@ -85,8 +76,25 @@ function Alltransactions() {
     }
   };
 
+  const editTransaction = async (_id) => {
+
+    setAmount(amount)
+    setCategory(category)
+    setDescriptionr(description)
+    setType(type)
+
+    console.log(_id)
+
+    const edit = { amount, category, description, type }
+
+    const response = await axios.put(`/api/transactions/${_id}`, edit)
+
+    alert(response?.data?.message)
+  }
+
   useEffect(() => {
     loadData()
+
 
     const storageUser = JSON.parse(localStorage.getItem("customer") || "{}");
     console.log(storageUser);
@@ -143,7 +151,7 @@ function Alltransactions() {
             <option>Food</option>
             <option>Other</option>
           </select>
-          {/* {type} */}
+          
           <input type='radio'
             name='radio'
             checked={type === 'Credit'}
@@ -176,30 +184,26 @@ function Alltransactions() {
               const date = new Date(createdAt).toLocaleDateString();
               const time = new Date(createdAt).toLocaleTimeString();
               const ALL_EMOGY = ({
-                Food : "😋", 
-                Entertainment: "🎥", 
-                Rent: "🏠", 
-                Shoping : "🛍️", 
-                Travel : " 🧳", 
-                Education : "📚",
+                Food: "😋",
+                Entertainment: "🎥",
+                Rent: "🏠",
+                Shoping: "🛍️",
+                Travel: " 🧳",
+                Education: "📚",
                 Other: "😎"
-            })
+              })
               return (
                 <div className='transaction-cards' key={i}>
-                
+
 
                   <p className='category-transaction'> {ALL_EMOGY[category]} {category}  </p>
                   <span className={` amount-transaction ${type === "Credit" ? "creadit-transaction" : "debit-transaction"}`} >{type === "Credit" ? "+" : "-"} {amount}  </span>
                   <span>{type === "Credit" ? "Credited" : "Debited"}</span>
-                  
-                
-                    <span>  on {date } at {time} </span>
-                
-                  
 
 
+                  <span>  on {date} at {time} </span>
 
-                  <hr/>
+                  <hr />
 
                   <p>{description}</p>
 
@@ -208,7 +212,7 @@ function Alltransactions() {
                   }}> Delete </span>
 
                   <span className='edit-text' onClick={() => {
-                    
+                    editTransaction(_id);
                   }}> Edit </span>
                 </div>
               )

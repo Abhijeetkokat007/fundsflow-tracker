@@ -1,5 +1,6 @@
 import React from 'react'
 import './Home.css'
+import fundimg from './../../Images/fundimg.jpg'
 import Navbar from './../../components/Navbar/Navbar.js'
 
 function Home() {
@@ -11,8 +12,21 @@ function Home() {
       <Navbar />
 
 
-      <div className='image-main'><h1>Tools for Tracking Your Spending</h1>
-        <p className='text-poster'>Get your a monthly expense tracker to help track your spending.</p>
+      <div className='image-main'>
+
+       <div>
+       <h1 className='img-heading'>Tools for </h1>
+       <h1 className='m--10'>Tracking Your Spending</h1>
+        <p className='m-20px'>Get your a monthly expense tracker</p>
+        <p className='m--10'> to help track your spending.</p>
+
+        <button className='btn-register get-start' onClick={()=>{ window.location.href = "/login";}}>Get Start</button>
+       </div>
+
+       <div>
+       <img src={fundimg} className='img-fundimg' />
+       </div>
+
       </div>
 
       <div className='home-poster'>
@@ -72,7 +86,7 @@ function Home() {
       </div>
 
 <div className='devlop-name'>
-  Deloped By © Abhijeetkokat007 <img height="30px" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWTJYQn37nEl5r7Z1MhX8Jaw6KUvJtkYc0Bw&usqp=CAU'/>
+  Made By @Abhijeetkokat007 <img height="30px" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWTJYQn37nEl5r7Z1MhX8Jaw6KUvJtkYc0Bw&usqp=CAU'/>
 </div>
     </div>
   )

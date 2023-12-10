@@ -24,8 +24,7 @@
 .all-card-container{
     height: 80vh;
     margin-top: 40px;
-    
-    /* background-color: bisque; */
+  
     overflow-y: scroll;
   }
   .all-card-container::-webkit-scrollbar {
